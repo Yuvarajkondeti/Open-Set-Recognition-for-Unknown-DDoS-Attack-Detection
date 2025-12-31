@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>DDoS OSR Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>DDoS Detection System</h1>
-<button onclick="detect()">Analyze Traffic</button>
-<div id="output"></div>
-<script src="script.js"></script>
+
+  <div class="container">
+    <h1>🛡️ DDoS Detection System</h1>
+    <p class="subtitle">Open-Set Recognition for Unknown Attacks</p>
+
+    <button onclick="detect()">Analyze Network Traffic</button>
+
+    <div id="output" class="output-box">
+      Waiting for analysis...
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

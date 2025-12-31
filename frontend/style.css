@@ -1,3 +1,72 @@
-body { text-align: center; font-family: Arial; }
-button { padding: 10px 20px; font-size: 16px; }
-#output { margin-top: 20px; font-size: 18px; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #020024);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e5e7eb;
+}
+
+.container {
+  background: #020617;
+  padding: 40px;
+  border-radius: 12px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+h1 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 16px;
+  background: #22c55e;
+  color: #020617;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+.output-box {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #020024;
+  font-size: 18px;
+  min-height: 80px;
+}
+
+/* Dynamic colors */
+.safe {
+  color: #22c55e;
+}
+
+.known {
+  color: #ef4444;
+}
+
+.unknown {
+  color: #f59e0b;
+}

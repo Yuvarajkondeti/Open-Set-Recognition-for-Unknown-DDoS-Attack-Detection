@@ -1,16 +1,33 @@
 function detect() {
+  const output = document.getElementById("output");
+  output.innerHTML = "⏳ Analyzing traffic...";
 
-  // 🔑 MUST MATCH TRAINING FEATURES (79)
+  // MUST match trained model input size
   let features = Array.from({ length: 79 }, () => Math.random());
 
   fetch("http://127.0.0.1:5000/predict", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ features: features })
+    body: JSON.stringify({ features })
   })
   .then(res => res.json())
   .then(data => {
-    document.getElementById("output").innerHTML =
-      `Prediction: ${data.prediction}<br>Distance: ${data.distance}`;
+    let cssClass = "safe";
+
+    if (data.prediction.toLowerCase().includes("unknown")) {
+      cssClass = "unknown";
+    } else if (data.prediction.toLowerCase().includes("attack")) {
+      cssClass = "known";
+    }
+
+    output.innerHTML = `
+      <div class="${cssClass}">
+        <strong>Prediction:</strong> ${data.prediction}<br>
+        <strong>Distance:</strong> ${data.distance.toFixed(3)}
+      </div>
+    `;
+  })
+  .catch(() => {
+    output.innerHTML = "❌ Backend not reachable";
   });
 }
